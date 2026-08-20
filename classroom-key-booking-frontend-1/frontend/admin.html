@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin &mdash; Classroom Key Booking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="top-bar">
+    <div class="brand">
+      <div class="key-mark">🔑</div>
+      <span>KeyBook &mdash; Admin</span>
+    </div>
+
+    <nav class="hover-nav">
+      <div class="nav-item active">
+        <span class="nav-icon">📋</span>
+        <span class="nav-label">All bookings</span>
+      </div>
+      <div class="nav-item danger" id="logoutBtn">
+        <span class="nav-icon">⏻</span>
+        <span class="nav-label">Log out</span>
+      </div>
+    </nav>
+  </div>
+
+  <div class="section-title reveal">
+    <h2>All bookings</h2>
+    <span class="count" id="bookingCount">&mdash;</span>
+  </div>
+
+  <div class="table-wrap reveal">
+    <table>
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>Index no.</th>
+          <th>Room</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="bookingsBody">
+        <tr><td colspan="7" class="eyebrow" style="padding:1.5rem;">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/scroll-reveal.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

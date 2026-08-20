@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard &mdash; Classroom Key Booking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="top-bar">
+    <div class="brand">
+      <div class="key-mark">🔑</div>
+      <span id="welcomeText">KeyBook</span>
+    </div>
+
+    <nav class="hover-nav">
+      <div class="nav-item active" data-view="dashboard">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Dashboard</span>
+      </div>
+      <div class="nav-item" data-view="mybookings">
+        <span class="nav-icon">📋</span>
+        <span class="nav-label">My bookings</span>
+      </div>
+      <div class="nav-item danger" id="logoutBtn">
+        <span class="nav-icon">⏻</span>
+        <span class="nav-label">Log out</span>
+      </div>
+    </nav>
+  </div>
+
+  <!-- BOOK A ROOM -->
+  <div class="section-title reveal">
+    <h2>Available rooms</h2>
+    <span class="count" id="roomCount">&mdash;</span>
+  </div>
+  <div class="room-grid reveal-stagger" id="roomGrid">
+    <p class="eyebrow">Loading rooms...</p>
+  </div>
+
+  <div class="panel reveal" id="bookingPanel" style="display:none;">
+    <div class="section-title">
+      <h2>Book <span id="selectedRoomName" class="mono"></span></h2>
+    </div>
+
+    <div class="form-error" id="bookingError"></div>
+
+    <form id="bookingForm">
+      <div class="field">
+        <label for="bookingDate">Date</label>
+        <input type="date" id="bookingDate" required>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="startTime">Start time</label>
+          <input type="time" id="startTime" required>
+        </div>
+        <div class="field">
+          <label for="endTime">End time</label>
+          <input type="time" id="endTime" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" id="bookBtn">Reserve key</button>
+
+      <div class="key-confirm" id="keyConfirm">
+        <span class="key-icon">🔑</span>
+        <span class="lock-icon">🔒</span>
+        <span class="confirm-text">Booking confirmed</span>
+      </div>
+    </form>
+  </div>
+
+  <!-- MY BOOKINGS -->
+  <div class="section-title reveal">
+    <h2>My bookings</h2>
+    <span class="count" id="bookingCount">&mdash;</span>
+  </div>
+  <div class="table-wrap reveal">
+    <table>
+      <thead>
+        <tr>
+          <th>Room</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="bookingsBody">
+        <tr><td colspan="5" class="eyebrow" style="padding:1.5rem;">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/scroll-reveal.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
