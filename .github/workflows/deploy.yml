@@ -30,7 +30,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # This specifies the exact path to your frontend files
-         path: 'classroom-key-booking-frontend-1/frontend'
+        path: 'classroom-key-booking-frontend-1/frontend'
 
       - name: Deploy to GitHub Pages
         id: deployment
