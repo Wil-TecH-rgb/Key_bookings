@@ -31,7 +31,7 @@ function requireAuth() {
 }
 
 // Core request helper. Automatically attaches the auth token if present.
-async function apiRequest(path, { method = "GET", body = null, auth = false } = {}) {
+/*async function apiRequest(path, { method = "GET", body = null, auth = false } = {}) {
   const headers = { "Content-Type": "application/json" };
 
   if (auth) {
@@ -58,4 +58,40 @@ async function apiRequest(path, { method = "GET", body = null, auth = false } = 
   }
 
   return data;
+}*/
+
+
+// Core request helper. Automatically attaches the auth token if present.
+async function apiRequest(path, { method = "GET", body = null, auth = false } = {}) {
+  const headers = { 
+    "Content-Type": "application/json",
+    "ngrok-skip-browser-warning": "true",  // 👈 BYPASSES NGROK INTERSTITIAL WARNING
+    "Bypass-Tunnel-Reminder": "true"       // 👈 DOUBLE ENFORCES WEB CONNECTION
+  };
+
+  if (auth) {
+    const token = getToken();
+    if (token) headers["Authorization"] = "Bearer " + token;
+  }
+
+  const response = await fetch(API_BASE + path, {
+    method,
+    headers,
+    body: body ? JSON.stringify(body) : null
+  });
+
+  let data = null;
+  try {
+    data = await response.json();
+  } catch (e) {
+    data = null;
+  }
+
+  if (!response.ok) {
+    const message = (data && data.error) ? data.error : "Something went wrong. Please try again.";
+    throw new Error(message);
+  }
+
+  return data;
 }
+
