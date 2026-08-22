@@ -3,7 +3,8 @@
 // Change API_BASE to your EC2 public IP/domain once deployed.
 // ============================================================
 
-const API_BASE = "https://apricot-resolute-uplifting.ngrok-free.dev"; // TODO: replace with your EC2 URL, e.g. http://YOUR_EC2_IP:5000/api
+//const API_BASE = "https://apricot-resolute-uplifting.ngrok-free.dev"; // TODO: replace with your EC2 URL, e.g. http://YOUR_EC2_IP:5000/api
+const API_BASE = "http://13.60.54.95:5000/api";
 
 function getToken() {
   return localStorage.getItem("ckb_token");
@@ -31,7 +32,7 @@ function requireAuth() {
 }
 
 // Core request helper. Automatically attaches the auth token if present.
-/*async function apiRequest(path, { method = "GET", body = null, auth = false } = {}) {
+async function apiRequest(path, { method = "GET", body = null, auth = false } = {}) {
   const headers = { "Content-Type": "application/json" };
 
   if (auth) {
@@ -58,11 +59,11 @@ function requireAuth() {
   }
 
   return data;
-}*/
+}
 
 
 // Core request helper. Automatically attaches the auth token if present.
-async function apiRequest(path, { method = "GET", body = null, auth = false } = {}) {
+/*async function apiRequest(path, { method = "GET", body = null, auth = false } = {}) {
   const headers = { 
     "Content-Type": "application/json",
     "ngrok-skip-browser-warning": "true",  // 👈 BYPASSES NGROK INTERSTITIAL WARNING
@@ -93,5 +94,5 @@ async function apiRequest(path, { method = "GET", body = null, auth = false } = 
   }
 
   return data;
-}
+}*/
 
