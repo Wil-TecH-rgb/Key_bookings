@@ -4,7 +4,7 @@
 // ============================================================
 
 //const API_BASE = "https://apricot-resolute-uplifting.ngrok-free.dev"; // TODO: replace with your EC2 URL, e.g. http://YOUR_EC2_IP:5000/api
-const API_BASE = "https://apricot-resolute-uplifting.ngrok-free.dev/api";
+const API_BASE = "/api";
 
 function getToken() {
   return localStorage.getItem("ckb_token");
