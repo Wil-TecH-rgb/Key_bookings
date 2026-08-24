@@ -3,19 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin &mdash; Classroom Key Booking</title>
+<title>Admin — Classroom Key Booking</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="app-shell">
+<!-- ADMIN LOGIN VIEW -->
+<div class="auth-page" id="adminLoginView">
+  <div class="auth-card">
+    <div class="auth-panel">
+      <div class="auth-icon">🔐</div>
+      <h2>Admin Sign In</h2>
+      <p class="sub">Porter/admin access only.</p>
+
+      <div class="form-error" id="adminLoginError"></div>
+
+      <form id="adminLoginForm">
+        <div class="field">
+          <label for="adminEmail">Email</label>
+          <input type="email" id="adminEmail" placeholder="admin@school.edu" required>
+        </div>
+        <div class="field">
+          <label for="adminPassword">Password</label>
+          <input type="password" id="adminPassword" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="adminLoginBtn">Sign in</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN DASHBOARD VIEW -->
+<div class="app-shell view-hidden" id="adminDashboardView">
 
   <div class="top-bar">
     <div class="brand">
       <div class="key-mark">🔑</div>
-      <span>KeyBook &mdash; Admin</span>
+      <span>KeyBook — Admin</span>
     </div>
 
     <nav class="hover-nav">
@@ -30,12 +56,12 @@
     </nav>
   </div>
 
-  <div class="section-title reveal">
+  <div class="section-title">
     <h2>All bookings</h2>
-    <span class="count" id="bookingCount">&mdash;</span>
+    <span class="count" id="bookingCount">—</span>
   </div>
 
-  <div class="table-wrap reveal">
+  <div class="table-wrap">
     <table>
       <thead>
         <tr>
@@ -57,7 +83,6 @@
 </div>
 
 <script src="js/api.js"></script>
-<script src="js/scroll-reveal.js"></script>
 <script src="js/admin.js"></script>
 </body>
 </html>
